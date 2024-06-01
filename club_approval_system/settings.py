@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,11 +75,13 @@ WSGI_APPLICATION = 'club_approval_system.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        "postgres://darshan_campushub_approval_user:aUib4zkBrqp3Vfy1hH2hrP5l51gaiAkt@dpg-cpdmp5n109ks73ekehq0-a.oregon-postgres.render.com/darshan_campushub_approval"
+        # conn_max_age=600,
+        # ssl_require=True
+    )
 }
+
 
 
 # Password validation
