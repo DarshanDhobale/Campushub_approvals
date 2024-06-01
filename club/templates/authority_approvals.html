@@ -1,0 +1,18 @@
+<!-- authority_approvals.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authority Approvals</title>
+</head>
+<body>
+    <h1>Authority Approvals</h1>
+    <ul>
+        {% for approval in approvals %}
+            <li>
+                <a href="{% url 'approval_detail' approval.proposal.id %}">{{ approval.proposal }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

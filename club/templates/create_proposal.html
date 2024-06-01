@@ -1,0 +1,11 @@
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <label for="id_authorities">Select Authorities:</label>
+  <select name="authorities" id="id_authorities" multiple>
+      {% for authority in authorities %}
+          <option value="{{ authority.id }}">{{ authority.name }}</option>
+      {% endfor %}
+  </select>
+  <button type="submit">Submit Proposal</button>
+</form>
